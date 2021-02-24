@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Javascript Task</title>
+    <script >
+    function fun()
+   {
+    let s=document.getElementById("str").value; 
+    let u=s.toUpperCase();
+    let l=s.toLowerCase();
+    let v=['a','e','i','o','u','A','E','I','O','U'];
+    let vowels=[];
+    let consonants=[];
+    for(let i=0;i<s.length;i++)
+    {
+        let c=s.charAt(i);
+        if(v.includes(c)){
+            vowels.push(c);
+        }
+        else if(c==' ')
+          {
+              continue;
+          }
+        else {
+            consonants.push(c);
+        }
+    }
+
+    if(/\d/.test(s))
+    {
+        document.getElementById("num").innerHTML="Enter a string with no number";
+    }
+    else
+    {
+        
+        document.getElementById("len").innerHTML=""+s.length+"<br>";
+        document.getElementById("uc").innerHTML=""+u+"<br>";
+        document.getElementById("lc").innerHTML=""+l+"<br>";
+        document.getElementById("vow").innerHTML=""+vowels+"<br>";
+        document.getElementById("con").innerHTML=""+consonants+"<br>";
+    }
+  }
+    </script>
+    
+</head>
+<style>
+    body{
+    text-align: center;
+    background-color:bisque;
+    }
+    h3
+     {
+       text-align:center;
+       color: black;
+    }
+    p{
+        font-size: large;
+        font-weight: 200;
+        color: black;
+        text-align:justify;
+    }
+    .hello{
+
+        text-align: center;
+        color: rgb(92, 43, 226);
+    }
+     
+</style>
+<body>
+    
+    <form onsubmit="{return false}">
+       
+       <div>
+        Name:<input type="text" id="str">
+        </div>
+        <br>
+        <button onclick="fun()">Submit</button>
+
+        <h1 class="hello">results:</h1>
+            <h3 class="p" id ="num"></h3>
+        
+        <h3>length:<span id="len"></span></h3>
+        <h3>Upper Case:<span id="uc"></span></h3>
+        <h3>Lower case:<span id="lc"></span></h3>
+        <h3>Vowels:<span id="vow"></span></h3>
+        <h3>Consonants:<span id="con"></span></h3>
+        
+      </form>    
+    </div>
+</body>
+</html>
