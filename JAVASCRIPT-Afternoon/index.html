@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Forms</title>
+    <link rel="stylesheet" href="./first.css">
+ <style>
+     body{
+       background-color: cadetblue;
+       text-align: center;  
+     }
+  
+    h1
+     {
+       text-align: center;
+       color: black;
+    }
+    p{
+        font-size: large;
+        font-weight: 200;
+        color: black;
+        text-align:justify;
+    }
+
+
+</style>
+<script>
+    let obj={ };
+    function save()
+    {
+       
+    obj.firstname = document.getElementById("firstname").value;
+    obj.lastname = document.getElementById("lastname").value;
+    obj.age = document.getElementById("age").value;
+    obj.rollno = document.getElementById("roll").value;
+    obj.gender = document.getElementById("male").checked ? "Male" :"Female";
+    obj.dob=document.getElementById("dob").value;
+    obj.occupation = document.getElementById("occ").value;
+    document.getElementById("done").innerHTML="details saved Successfully";
+     
+    }
+    function retrive()
+    {
+        let key = document.getElementById("num").value;
+        if(obj.rollno==key)
+        {
+       
+        document.getElementById("give").innerHTML = `
+        Details of student are: <br>
+        Name : ${obj.firstname}  ${obj.lastname} <br>
+        Age : ${obj.age} <br>
+        gender : ${obj.gender} <br>
+        DOB : ${obj.dob} <br>
+        Occupation : ${obj.occupation} <br>
+        `;
+        }
+    
+    else
+    {
+        document.getElementById("give").innerHTML = "record not found";
+        
+    }
+    
+    }
+
+</script>
+</head>
+<body> 
+    
+    <form onsubmit="{return false}">
+        <span id="print"></span>
+        <h1> WELCOME TO ACCOLITE</h1>
+    
+        <h1>Please fill the form </h1>
+        <div>
+            FirstName:<input type="text" id="firstname"name="firstname">
+        </div>
+        <br>
+        <div>
+           LastName:<input type="text" id="lastname" name="lastname">
+        </div>
+        <br>
+        <div>
+            age:<input type="number" id="age" name="age">
+        </div>
+        <br>
+       
+        <div>
+            Roll number:<input type="number" id="roll" name="rollno">
+        </div>
+        <br>
+        <div>
+            <label>Gender</label>
+            <input  type="radio" id="male" name="gender" value="male">
+            <label for="male">Male</label>
+            <input type="radio" id="female" name="gender" value="female">
+            <label for="female">Female</label>
+            <br>
+        </div>
+        <br>
+        
+        <div>
+            Date of birth:<input type="date" id="dob" name="date">
+        </div>
+        <br>
+        
+        <div>
+            Occupation:<input type="text" id="occ" >
+        </div>
+        <br>
+        <div>
+            <button onclick="save()" >submit</button>
+        </div>
+        <br>
+        <label id="done"></label>
+        <div>
+            enter roll number <input type="number" id="num"></input>
+        </div>
+        <br>
+        <div>
+            <button onclick="retrive()">getdetails</button>
+        </div>
+        <label id="give"></label>   
+    </form>
+</body>
+
+</html>
